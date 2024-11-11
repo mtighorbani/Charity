@@ -34,7 +34,7 @@ const NavItems = () => {
   return (
     <>
       <BottomNavigationAction
-        className="text-blue "
+        className="text-blue text-lg"
         value="contact"
         label="تماس با ما"
         showLabel
