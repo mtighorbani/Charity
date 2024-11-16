@@ -10,7 +10,7 @@ const BlurTextBox = ({ className, text, textClassName }: BlurTextProps) => {
   return (
     <div
       className={getClassNames([
-        " max-w-[30%] backdrop-blur-xl min-h-12 py-4 px-7 rounded-lg text-center ",
+        " max-w-[30%] backdrop-blur-xl min-h-12 py-4 px-7 rounded-lg text-center static ",
         className,
       ])}
     >
