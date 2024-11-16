@@ -3,7 +3,7 @@ import React from "react";
 const OurMissionBox = () => {
   return (
     <>
-      <div className=" text-center m-24 ring-1 rounded-lg ring-blue p-10 w-[60%] mx-auto">
+      <div className=" text-center mt-40 ring-1 rounded-lg shadow-lg shadow-blue/40 ring-blue p-10 w-[60%] mx-auto ">
         <h1 className=" mb-5 text-3xl font-extrabold">
           <span className="text-blue">#دیدگاه</span> ما
         </h1>

@@ -10,7 +10,7 @@ import { BottomNavigationAction, Button } from "@mui/material";
 
 const Navbar = () => {
   return (
-    <div className=" mx-auto text-gray-800 bg-white/90 mt-5 absolute top-0 w-full z-10 backdrop-blur-xl  flex justify-between items-center min-h-12  py-4 px-7  rounded-lg">
+    <div className=" mx-auto text-gray-800 bg-slate-50 mt-5 top-0 w-full z-10 xl max-w-screen-xl  flex justify-between  items-center min-h-12  py-4 px-7 fixed  rounded-lg">
       <NavButtons className="flex bg-transparent ">
         <Link href="/" className="text-xl font-bold self-center text-blue mx-9">
           AidNik
@@ -18,7 +18,7 @@ const Navbar = () => {
         <NavItems />
       </NavButtons>
       <Button
-        className="bg-[#1565c0] text-white text-sm font-bold gap-3 w-24 h-12  "
+        className="bg-[#1565c0] text-white text-sm font-bold gap-3 p-6 max-w-24 h-12  mx-9"
         size="small"
       >
         ورود
@@ -34,7 +34,7 @@ const NavItems = () => {
   return (
     <>
       <BottomNavigationAction
-        className="text-blue text-lg"
+        className="text-blue "
         value="contact"
         label="تماس با ما"
         showLabel
