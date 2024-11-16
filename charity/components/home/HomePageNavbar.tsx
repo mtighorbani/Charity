@@ -10,7 +10,6 @@ const HomePageNavbar = () => {
   return (
     <>
       <div className="relative">
-        <Navbar />
         <BlurTextBox
           text="کمک شما، امید تازه برای زندگی دیگران"
           className="mt-60 absolute mr-20"
@@ -21,14 +20,10 @@ const HomePageNavbar = () => {
           className="mt-80 bg-white mr-32 absolute"
           textClassName="text-blue"
         />
-        <Image
-          src={BgImage}
-          alt="کمک | خیریه"
-          objectFit="cover"
-          className="top-0 rounded-t-xl"
-          height={1000}
-        />
-        <Card cardData={homepageCard} />
+        <Image src={BgImage} alt="کمک | خیریه" className="top-0 rounded-t-xl" />
+        <div className="absolute  transform -translate-y-1/4 w-full">
+          <Card classNames="mt-[-80px]" cardData={homepageCard} />
+        </div>
       </div>
     </>
   );
