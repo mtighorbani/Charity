@@ -1,14 +1,19 @@
 import React from "react";
+import Link from "next/link";
+
+//app
 import NavButtons from "../../common/base/NavButton";
 import PhoneIcon from "@mui/icons-material/Phone";
 import AboutUsIcon from "@mui/icons-material/InfoOutlined";
 import LocationOnIcon from "@mui/icons-material/AddModerator";
 import Person from "@mui/icons-material/Person";
-
-import Link from "next/link";
 import { BottomNavigationAction, Button } from "@mui/material";
+import { useAppDispatch } from "@/store/store";
+import { HomePageActions } from "@/store/home/HomePageSatate";
 
 const Navbar = () => {
+  const dispatch = useAppDispatch();
+
   return (
     <div className=" mx-auto text-gray-800 bg-slate-50 mt-5 top-0 w-full z-10 xl max-w-screen-xl  flex justify-between  items-center min-h-12  py-4 px-7 fixed  rounded-lg">
       <NavButtons className="flex bg-transparent ">
@@ -20,6 +25,11 @@ const Navbar = () => {
       <Button
         className="bg-[#1565c0] text-white text-sm font-bold gap-3 p-6 max-w-24 h-12  mx-9"
         size="small"
+        onClick={() =>
+          dispatch(
+            HomePageActions().isLoginDialogOpen({ isLoginDialogOpen: true })
+          )
+        }
       >
         ورود
         <Person />

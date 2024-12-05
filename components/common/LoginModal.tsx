@@ -1,22 +1,21 @@
 import React, { useState } from "react";
+import PhoneIcon from "@mui/icons-material/Phone";
+import { Button, FormControl, Input, InputAdornment } from "@mui/material";
 
 //app
 import BaseDialog from "../common/Dialog/Dialog";
-import { Button, FormControl, Input, InputAdornment } from "@mui/material";
-import PhoneIcon from "@mui/icons-material/Phone";
+import HomePageSelector from "@/store/home/HomePageSelector";
 import { postLogin } from "../api/login";
-
-interface KeyDownProps {
-  e: any;
-  phoneNumber: number;
-}
+import { useAppDispatch, useAppSelector } from "@/store/store";
+import { HomePageActions } from "@/store/home/HomePageSatate";
 
 const LoginModal = () => {
   const [openModal, setOpenModal] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState<number>();
 
-  const handleModalOpen = () => setOpenModal(true);
-  const handleModalClose = () => setOpenModal(false);
+  const dispatch = useAppDispatch();
+
+  const isOpen = useAppSelector(HomePageSelector().isLoginDialogOpen);
 
   const submitHandler = () => {
     phoneNumber && postLogin({ phone_number: phoneNumber });
@@ -24,8 +23,12 @@ const LoginModal = () => {
 
   return (
     <BaseDialog
-      onClose={handleModalClose}
-      onOpen={true}
+      onClose={() =>
+        dispatch(
+          HomePageActions().isLoginDialogOpen({ isLoginDialogOpen: false })
+        )
+      }
+      onOpen={isOpen}
       title="ورود یا ثبت نام"
     >
       <div
