@@ -1,12 +1,12 @@
 import { createSelector } from "@reduxjs/toolkit/react";
 import { IApplicationState } from "../IApplicationState";
 
-const HomePageSelectorFields = {
+const globalSelectorFields = {
   isLoginDialogOpen: createSelector(
-    (state: IApplicationState) => state.HomePageState.isLoginDialogOpen,
+    (state: IApplicationState) => state.GlobalState.isLoginDialogOpen,
     (isLoginDialogOpen) => isLoginDialogOpen
   ),
 };
 
-const HomePageSelector = () => HomePageSelectorFields;
-export default HomePageSelector;
+const globalSelector = () => globalSelectorFields;
+export default globalSelector;

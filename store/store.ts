@@ -2,11 +2,11 @@ import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 //app
-import homePageReducer from "@/store/home/HomePageSatate";
+import homePageReducer from "@/store/global/globalSatate";
 
 export const store = configureStore({
   reducer: {
-    HomePageState: homePageReducer,
+    GlobalState: homePageReducer,
   },
 });
 

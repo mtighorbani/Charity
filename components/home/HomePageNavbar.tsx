@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import BgImage from "@/asset/images/istockphoto-1092744152-2048x2048 (1).jpg";
 import BlurTextBox from "../common/base/BlurTextBox";
-import Navbar from "./navbar/Navbar";
 import homepageCard from "@/utils/homepagedata";
 import Card from "../common/Card";
 

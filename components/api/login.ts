@@ -11,7 +11,7 @@ export interface IResponseProps {
 }
 
 interface IRequestProps {
-  phone_number: Number;
+  phone_number: number;
 }
 export const postLogin = async ({
   phone_number,

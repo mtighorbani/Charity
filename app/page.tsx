@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 export default function Home() {
   return (
     <Provider store={store}>
-      <div className=" max-w-screen-xl mx-auto mt-3  items-center justify-center">
+      <div className=" max-w-screen-xl  mx-auto mt-3  items-center justify-center">
         <HomePage />
       </div>
     </Provider>

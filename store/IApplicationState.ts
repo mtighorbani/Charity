@@ -1,5 +1,5 @@
-import { HomePageSateProps } from "./home/HomePageSatate";
+import { GlobalSateProps } from "./global/globalSatate";
 
 export interface IApplicationState {
-  HomePageState: HomePageSateProps;
+  GlobalState: GlobalSateProps;
 }

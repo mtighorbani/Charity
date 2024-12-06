@@ -9,7 +9,7 @@ import LocationOnIcon from "@mui/icons-material/AddModerator";
 import Person from "@mui/icons-material/Person";
 import { BottomNavigationAction, Button } from "@mui/material";
 import { useAppDispatch } from "@/store/store";
-import { HomePageActions } from "@/store/home/HomePageSatate";
+import { globalActions } from "@/store/global/globalSatate";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -27,7 +27,7 @@ const Navbar = () => {
         size="small"
         onClick={() =>
           dispatch(
-            HomePageActions().isLoginDialogOpen({ isLoginDialogOpen: true })
+            globalActions().isLoginDialogOpen({ isLoginDialogOpen: true })
           )
         }
       >

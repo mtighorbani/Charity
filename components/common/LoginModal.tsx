@@ -4,13 +4,12 @@ import { Button, FormControl, Input, InputAdornment } from "@mui/material";
 
 //app
 import BaseDialog from "../common/Dialog/Dialog";
-import HomePageSelector from "@/store/home/HomePageSelector";
+import HomePageSelector from "@/store/global/globalSelector";
 import { postLogin } from "../api/login";
 import { useAppDispatch, useAppSelector } from "@/store/store";
-import { HomePageActions } from "@/store/home/HomePageSatate";
+import { globalActions } from "@/store/global/globalSatate";
 
 const LoginModal = () => {
-  const [openModal, setOpenModal] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState<number>();
 
   const dispatch = useAppDispatch();
@@ -18,14 +17,18 @@ const LoginModal = () => {
   const isOpen = useAppSelector(HomePageSelector().isLoginDialogOpen);
 
   const submitHandler = () => {
-    phoneNumber && postLogin({ phone_number: phoneNumber });
+    if (phoneNumber && phoneNumber.toString().length < 10) {
+      return;
+    } else if (phoneNumber) {
+      postLogin({ phone_number: phoneNumber });
+    }
   };
 
   return (
     <BaseDialog
       onClose={() =>
         dispatch(
-          HomePageActions().isLoginDialogOpen({ isLoginDialogOpen: false })
+          globalActions().isLoginDialogOpen({ isLoginDialogOpen: false })
         )
       }
       onOpen={isOpen}
@@ -41,6 +44,9 @@ const LoginModal = () => {
             type="number"
             id="input-with-icon-adornment"
             value={phoneNumber}
+            error={
+              phoneNumber && phoneNumber.toString().length < 10 ? true : false
+            }
             startAdornment={
               <InputAdornment position="end">
                 <PhoneIcon />
