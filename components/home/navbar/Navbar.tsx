@@ -1,15 +1,17 @@
+"use client";
 import React from "react";
 import Link from "next/link";
+
+import Person from "@mui/icons-material/Person";
+import { BottomNavigationAction, Button } from "@mui/material";
 
 //app
 import NavButtons from "../../common/base/NavButton";
 import PhoneIcon from "@mui/icons-material/Phone";
 import AboutUsIcon from "@mui/icons-material/InfoOutlined";
 import LocationOnIcon from "@mui/icons-material/AddModerator";
-import Person from "@mui/icons-material/Person";
-import { BottomNavigationAction, Button } from "@mui/material";
 import { useAppDispatch } from "@/store/store";
-import { globalActions } from "@/store/global/globalSatate";
+import { globalActions } from "@/store/global/globalState";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -47,21 +49,18 @@ const NavItems = () => {
         className="text-blue "
         value="contact"
         label="تماس با ما"
-        showLabel
         icon={<PhoneIcon />}
       />
       <BottomNavigationAction
         className="text-blue"
         value="About us"
         label="درباره ما"
-        showLabel
         icon={<AboutUsIcon />}
       />
       <BottomNavigationAction
         className="text-blue"
         value="Donate"
         label="خیریه"
-        showLabel
         icon={<LocationOnIcon />}
       />
     </>

@@ -1,3 +1,4 @@
+'use client'
 import createLoginApi from "./api";
 
 export interface IResponseProps {

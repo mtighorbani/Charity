@@ -1,4 +1,4 @@
-import { GlobalSateProps } from "./global/globalSatate";
+import { GlobalSateProps } from "./global/globalState";
 
 export interface IApplicationState {
   GlobalState: GlobalSateProps;

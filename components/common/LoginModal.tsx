@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import PhoneIcon from "@mui/icons-material/Phone";
 import { Button, FormControl, Input, InputAdornment } from "@mui/material";
@@ -7,7 +8,7 @@ import BaseDialog from "../common/Dialog/Dialog";
 import HomePageSelector from "@/store/global/globalSelector";
 import { postLogin } from "../api/login";
 import { useAppDispatch, useAppSelector } from "@/store/store";
-import { globalActions } from "@/store/global/globalSatate";
+import { globalActions } from "@/store/global/globalState";
 
 const LoginModal = () => {
   const [phoneNumber, setPhoneNumber] = useState<number>();
@@ -17,7 +18,7 @@ const LoginModal = () => {
   const isOpen = useAppSelector(HomePageSelector().isLoginDialogOpen);
 
   const submitHandler = () => {
-    if (phoneNumber && phoneNumber.toString().length < 10) {
+    if (phoneNumber && phoneNumber.toString().length !== 10) {
       return;
     } else if (phoneNumber) {
       postLogin({ phone_number: phoneNumber });
@@ -45,7 +46,7 @@ const LoginModal = () => {
             id="input-with-icon-adornment"
             value={phoneNumber}
             error={
-              phoneNumber && phoneNumber.toString().length < 10 ? true : false
+              phoneNumber && phoneNumber.toString().length !== 10 ? true : false
             }
             startAdornment={
               <InputAdornment position="end">
