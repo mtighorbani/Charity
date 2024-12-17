@@ -1,9 +1,13 @@
 import React from "react";
 import Image from "next/image";
-import BgImage from "@/asset/images/istockphoto-1092744152-2048x2048.jpg";
+
+//app
 import BlurTextBox from "../common/base/BlurTextBox";
 import homepageCard from "@/utils/homepagedata";
 import Card from "../common/Card";
+
+//asset
+import BgImage from "@/asset/images/homePageImg.webp";
 
 const HomePageNavbar = () => {
   return (
