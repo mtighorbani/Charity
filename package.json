@@ -9,11 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@mui/base": "^5.0.0-beta.64",
     "@mui/icons-material": "^6.1.6",
-    "@mui/material": "^6.1.6",
+    "@mui/material": "^6.2.0",
     "@reduxjs/toolkit": "^2.4.0",
     "axios": "^1.7.9",
     "classnames": "^2.5.1",
@@ -22,7 +23,9 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^9.1.2",
-    "redux-toolkit": "^1.1.2"
+    "redux-toolkit": "^1.1.2",
+    "sharp": "^0.31.2",
+    "sip.js": "^0.21.2"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.26.3",
