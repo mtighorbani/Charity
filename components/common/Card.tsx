@@ -1,7 +1,5 @@
 import getClassNames from "@/utils/getClassName";
-import Image from "next/image";
 import React from "react";
-import BgImage from "@/asset/images/istockphoto-1092744152-2048x2048 (1).jpg";
 
 interface CardProps {
   cardData: {
@@ -17,24 +15,24 @@ const Card = ({ cardData, classNames }: CardProps) => {
   return (
     <div
       className={getClassNames([
-        "flex gap-16 w-full static mx-auto justify-center",
+        "flex flex-wrap justify-center gap-4 sm:gap-8 mx-auto w-full",
         classNames,
       ])}
     >
-      {cardData.map((index) => (
+      {cardData.map((item, idx) => (
         <div
-          key={index.index}
-          className="w-80 h-52 bg-white/90 backdrop-blur-xl  shadow-lg shadow-blue/40 rounded-lg items-center  flex  "
+          key={item.index}
+          className={getClassNames([
+            "relative w-[45%] sm:w-72 max-lg:h-52 md:w-80 h-64 bg-white/90 backdrop-blur-xl shadow-lg shadow-blue/40 rounded-lg flex items-center",
+            idx === 2 && "hidden sm:flex",
+          ])}
         >
-          {index.image && (
-            <Image src={BgImage} fill alt="خیزیه" className="relative" />
-          )}
-          <div className="absolute h-full text-center px-7 ">
-            <h3 className="text-2xl font-extrabold my-5 text-blue">
-              {index.title}
+          <div className="absolute h-full text-center px-7  flex flex-col justify-center">
+            <h3 className="text-2xl max-lg:text-xl font-extrabold my-3 text-blue">
+              {item.title}
             </h3>
-            <p className="text-base text-gray-900 font-semibold  ">
-              {index.content}
+            <p className="text-base max-lg:text-sm  text-gray-900 font-semibold">
+              {item.content}
             </p>
           </div>
         </div>

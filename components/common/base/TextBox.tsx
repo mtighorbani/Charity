@@ -13,7 +13,7 @@ const TextBox = (props: TextBoxProps) => {
   return (
     <div
       className={getClassNames([
-        " text-center  ring-1 rounded-lg  p-10 max-w-[60%] mx-auto ",
+        " text-center  ring-1 rounded-lg mx-auto ",
         props.className,
       ])}
     >
