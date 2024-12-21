@@ -18,7 +18,7 @@ export const postLogin = async ({
   phone_number,
 }: IRequestProps): Promise<IResponseProps | null> => {
   try {
-    const response = await createLoginApi.post("/", {
+    const response = await createLoginApi.post("/otp", {
       phone_number: phone_number,
     });
 
