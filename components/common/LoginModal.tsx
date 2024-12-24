@@ -1,9 +1,11 @@
 "use client";
+
 import React, { useState } from "react";
 import PhoneIcon from "@mui/icons-material/Phone";
 import { Button, FormControl, Input, InputAdornment } from "@mui/material";
+import { z } from "zod";
 
-//app
+// App imports
 import BaseDialog from "../common/Dialog/Dialog";
 import HomePageSelector from "@/store/global/globalSelector";
 import { postLogin } from "../api/login";
@@ -11,17 +13,30 @@ import { useAppDispatch, useAppSelector } from "@/store/store";
 import { globalActions } from "@/store/global/globalState";
 
 const LoginModal = () => {
-  const [phoneNumber, setPhoneNumber] = useState<number>();
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const [error, setError] = useState(false);
 
   const dispatch = useAppDispatch();
-
   const isOpen = useAppSelector(HomePageSelector().isLoginDialogOpen);
 
+  const phoneNumberSchema = z
+    .string()
+    .length(11, "شماره تماس باید ۱۱ رقم باشد")
+    .regex(/^0\d{10}$/, "شماره تماس باید با ۰ شروع شود و فقط اعداد باشد");
+
   const submitHandler = () => {
-    if (phoneNumber && phoneNumber.toString().length !== 10) {
-      return;
-    } else if (phoneNumber) {
+    try {
+      phoneNumberSchema.parse(phoneNumber);
+      setError(false);
       postLogin({ phone_number: phoneNumber });
+      setPhoneNumber("");
+    } catch (e) {
+      setError(true);
+      if (e instanceof z.ZodError) {
+        alert(e.errors[0]?.message || "خطای نامشخص");
+      } else {
+        alert("خطای ناشناخته");
+      }
     }
   };
 
@@ -42,23 +57,20 @@ const LoginModal = () => {
         <p className="text-gray-700">لطفا شماره تماس خود را وارد کنید</p>
         <FormControl lang="fa">
           <Input
-            type="number"
-            id="input-with-icon-adornment"
+            error={error}
             value={phoneNumber}
-            error={
-              phoneNumber && phoneNumber.toString().length !== 10 ? true : false
-            }
             startAdornment={
               <InputAdornment position="end">
                 <PhoneIcon />
               </InputAdornment>
             }
-            onChange={(e) => setPhoneNumber(parseInt(e.target.value))}
+            onChange={(e) => setPhoneNumber(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 submitHandler();
               }
             }}
+            placeholder="شماره تماس را وارد کنید"
           />
         </FormControl>
         <Button
